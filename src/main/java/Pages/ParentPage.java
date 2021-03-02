@@ -62,7 +62,7 @@ public abstract class ParentPage {         //abstract = nobody can create object
  // CLICK ON THE ELEMENT
     protected void clickOnElement(WebElement webElement){
         try {
-            webDriverWait15.until(ExpectedConditions.elementToBeClickable(webElement));
+            webDriverWait10.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
             logger.info(getElementName(webElement) + "Element was clicked");
         }catch (Exception e){
