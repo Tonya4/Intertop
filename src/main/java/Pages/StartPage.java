@@ -14,6 +14,9 @@ public class StartPage extends ParentPage {
     @FindBy(xpath = ".//*[@class='menu-item']//a[@href='/catalog/zhenskaya_obuv/'] ")
     private WebElement obuvButton;
 
+    @FindBy(xpath = ".//*[@class='user-menu-item item_favorite one-user-menu u-2 active']")
+    private WebElement favoritesButton;
+
 
     public StartPage(WebDriver webDriver) {
         super(webDriver);
@@ -45,5 +48,10 @@ public class StartPage extends ParentPage {
     public StartPage clickOnObuvButton(){
         clickOnElement(obuvButton);
         return new StartPage(webDriver);
+    }
+
+    public FavoritesPage clickOnFavoritesButton(){
+        clickOnElement(favoritesButton);
+        return new FavoritesPage(webDriver);
     }
 }

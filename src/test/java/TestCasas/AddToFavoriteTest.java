@@ -8,7 +8,13 @@ public class AddToFavoriteTest extends BaseTest {
     @Test
     public void addToFavorite(){
         startPage.openStartPage()
+        .clickOnFavoritesButton()
+        .checkFavoriteEmptyMessage()
         .clickOnObuvButton()
+        .clickOnKrossovkiButton()
+        .addToFavorite()
+        .clickOnFavoritesButton()
+        .checkIsFavoriteProductVisible()
         ;
     }
 }
