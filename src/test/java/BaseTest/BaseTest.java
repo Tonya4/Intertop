@@ -2,6 +2,7 @@ package BaseTest;
 
 import Pages.BrandsPage;
 import Pages.BrendAdidasPage;
+import Pages.FavoritesPage;
 import Pages.StartPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
@@ -24,6 +25,8 @@ import static Pages.ParentPage.configProperties;
         protected StartPage startPage;
         protected BrandsPage brandsPage;
         protected BrendAdidasPage brandAdidasPage;
+        protected FavoritesPage favoritesPage;
+
 
         @Rule
         public TestName testName = new TestName();
@@ -31,7 +34,7 @@ import static Pages.ParentPage.configProperties;
 
         @Before
         public void setUp() throws Exception {
-            logger.info("-----" + testName.getMethodName() + " was started -----");
+            logger.info("-----  " + testName.getMethodName() + " was started  -----");
             webDriver = initDriver();
 
             webDriver.manage().window().maximize();  //full size for window
@@ -62,7 +65,7 @@ import static Pages.ParentPage.configProperties;
         public void teamDown(){
             webDriver.quit();
             logger.info("Browser was closed");
-            logger.info("-----" + testName.getMethodName() + " was ended -----");
+            logger.info("-----  " + testName.getMethodName() + " was ended  -----");
         }
 
         protected void checkExpectedResult(String message, boolean actualResult){

@@ -4,6 +4,7 @@ import libs.ConfigProperties;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -50,14 +51,6 @@ public abstract class ParentPage {         //abstract = nobody can create object
         }
     }
 
-// Return name (is it webElement or Yandex)
-    private String getElementName(WebElement webElement) {
-        String elementName = "";
-        if (webElement instanceof TypifiedElement){
-            elementName = " '" +((TypifiedElement) webElement).getName() + "' ";
-        }
-        return elementName;
-    }
 
  // CLICK ON THE ELEMENT
     protected void clickOnElement(WebElement webElement){
@@ -80,6 +73,19 @@ public abstract class ParentPage {         //abstract = nobody can create object
         }
     }
 
+// NEW !!! REMENBER PRODUCT TITLE
+    protected String rememberPruductTitle(WebElement webElement){
+        try{
+            webDriverWait15.until(ExpectedConditions.visibilityOf(webElement));
+            String productTitle = webElement.getAttribute("title");
+            logger.info("Product Title was remembered");
+            return productTitle;
+        }catch (Exception e){
+            printErrorMessageAndStopTest(e);
+            return "product Title was not remembered";
+        }
+    }
+
 // IS ELEMENT DISPLAYED????
     protected boolean isElementDisplayed(WebElement webElement){
         try {
@@ -95,6 +101,20 @@ public abstract class ParentPage {         //abstract = nobody can create object
     protected void checkIsElementVisible(WebElement webElement){
         Assert.assertTrue("Element is not visible", isElementDisplayed(webElement));
     }
+
+// NEW !!! CHECK IS TEXT IN THE ELEMENT
+    protected boolean isTextInElement(WebElement webElement, String text){
+        try {
+            boolean state = webElement.toString().contains(text);
+            logger.info(getElementName(webElement) + " Contains " + text + " : " + state);
+            return state; //TODO
+        } catch (Exception e){
+            logger.info(getElementName(webElement) + "Text in Element : false");
+            return false;
+        }
+
+    }
+
 
 // SELECT IN DROP DOWN === JAVA BY TEXT (need time)
     protected void selectTextInDropDown(WebElement webElement, String text){
@@ -119,6 +139,15 @@ public abstract class ParentPage {         //abstract = nobody can create object
     }
 
 //=========================================================
+
+// Return name (is it webElement or Yandex)
+    private String getElementName(WebElement webElement) {
+        String elementName = "";
+        if (webElement instanceof TypifiedElement){
+            elementName = " '" +((TypifiedElement) webElement).getName() + "' ";
+        }
+        return elementName;
+    }
 
 // IN CASE OF EXCEPTION
     private void printErrorMessageAndStopTest(Exception e) {

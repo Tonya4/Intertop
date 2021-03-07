@@ -28,11 +28,14 @@ public class BrandsPage extends ParentPage{
         Assert.assertThat("Invalid page"
                 , webDriver.getCurrentUrl()
                 , containsString(baseUrl + getRelativeUrl()));
+        logger.info("===== Brands Page was opened =====");
         return this;
     }
 
     public BrendAdidasPage clickOnAdidasButton(){
-        clickOnElement(adidasButton);
+        clickOnElement(adidasButton, "'Adidas Button' ");
         return new BrendAdidasPage(webDriver);
     }
+
+
 }

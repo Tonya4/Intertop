@@ -3,7 +3,7 @@ package TestCasas;
 import BaseTest.BaseTest;
 import org.junit.Test;
 
-public class AdidasPageTest extends BaseTest {
+public class TC1_AdidasPageTest extends BaseTest {
 
     @Test
     public void openAdidasPage(){
