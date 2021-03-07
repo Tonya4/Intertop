@@ -1,5 +1,6 @@
 package Pages;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,13 +16,13 @@ public class FavoritesPage extends ParentPage{
     @FindBy(xpath = ".//*[@class ='one-item-fav']")
     private Button deleteFavoriteButton;
 
-    @FindBy(xpath = ".//*[@class='menu-item']//a[@href='/catalog/zhenskaya_obuv/'] ")
+    @FindBy(xpath = ".//*[@class='menu-item']//a[@href='/ua/catalog/zhenskaya_obuv/'] ")
     private WebElement obuvButton;
 
     @FindBy(xpath =".//*/b[text()='У вас поки немає товарів у списку “Обране”']")
     private WebElement favoriteEmptyMessage;
 
-    @FindBy(xpath = ".//*[@href='/catalog/zhenskaya_obuv/krossovki/']")
+    @FindBy(xpath = ".//*[@href='/ua/catalog/zhenskaya_obuv/krossovki/']")
     private WebElement krossovkiButton;
 
     public FavoritesPage(WebDriver webDriver) {
@@ -33,28 +34,37 @@ public class FavoritesPage extends ParentPage{
         return "/favorites/";
     }
 
+//=========================================================
+
     public FavoritesPage deleteFavoritesProduct(){
         clickOnElement(deleteFavoriteButton);
         return this;
     }
 
-   /* public FavoritesPage deleteFavoritesProducts(){
-        int counter = 0;
-        while (checkIsElementVisible(favoriteProduct) && counter <100){
-            clickOnElement(webDriver.findElement(By.xpath(deleteFavoriteButton)));
-            counter ++;
-        }
+    public FavoritesPage deleteFavoritesProducts(){
+         int counter = 0;
+         while (isElementDisplayed(favoriteProduct) && counter <100){
+         clickOnElement(deleteFavoriteButton);
+         counter ++;
+         }
         return this;
     }
-     */
+
+    public FavoritesPage checkIsRedirectedOnFavoritesPage() {
+        Assert.assertEquals("Invalid page"
+                , baseUrl + getRelativeUrl()
+                , webDriver.getCurrentUrl());
+        logger.info("===== Favorite Page was opened =====");
+        return this;
+    }
 
    public FavoritesPage clickOnObuvButton(){
-       clickOnElement(obuvButton);
+       clickOnElement(obuvButton, "'Obuv button' ");
        return new FavoritesPage (webDriver);
    }
 
     public KrossovkiZhPage clickOnKrossovkiButton(){
-        clickOnElement(krossovkiButton);
+        clickOnElement(krossovkiButton, "'Krossovki button' ");
         return new KrossovkiZhPage (webDriver);
     }
 
@@ -68,21 +78,5 @@ public class FavoritesPage extends ParentPage{
        return this;
     }
 
-
 }
 
-/*
-  int counter = 0;
-        while (!listOfPosts.isEmpty() && counter < 100){
-            clickOnElement(webDriver.findElement(
-                    By.xpath(String.format(postTitleLocator, post_title))), " Post with title " +post_title);
-            new SinglePostPage(webDriver)
-                    .checkIsRedirectToSinglePostPage()
-                    .clickOnDeletePostButton()
-                    .checkIsRedirectToProfilePage()
-                    .checkSuccessDeletePost();
-            listOfPosts = webDriver.findElements(By.xpath(String.format(postTitleLocator, post_title)));
-            counter ++;
-        }
-        return this;
- */

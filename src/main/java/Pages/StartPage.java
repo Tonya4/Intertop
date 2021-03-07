@@ -1,5 +1,6 @@
 package Pages;
 
+import libs.TestData;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,15 +9,14 @@ import ru.yandex.qatools.htmlelements.element.Button;
 
 public class StartPage extends ParentPage {
 
-    @FindBy(xpath = ".//*[@class='menu-item']//a[@href='/brands/'] ")
+    @FindBy(xpath = ".//*[@class='menu-item']//a[@href='/ua/brands/'] ")
     private Button brandsButton;
 
-    @FindBy(xpath = ".//*[@class='menu-item']//a[@href='/catalog/zhenskaya_obuv/'] ")
-    private WebElement obuvButton;
+    @FindBy(xpath = ".//a[@href='/ua/detyam/'] ")
+    private WebElement DetyamButton;
 
     @FindBy(xpath = ".//*[@class='user-menu-item item_favorite one-user-menu u-2 active']")
     private WebElement favoritesButton;
-
 
     public StartPage(WebDriver webDriver) {
         super(webDriver);
@@ -32,7 +32,7 @@ public class StartPage extends ParentPage {
     public StartPage openStartPage(){
         try {
             webDriver.get(baseUrl + getRelativeUrl());
-            logger.info("Start Page was opened");
+            logger.info("===== Start Page was opened =====");
         }catch (Exception e){
             logger.error("Can not open Start page");
             Assert.fail("Can not open Start page");
@@ -41,17 +41,18 @@ public class StartPage extends ParentPage {
     }
 
      public BrandsPage clickOnBrandsButton(){
-        clickOnElement(brandsButton);
+        clickOnElement(brandsButton, "'Brands' ");
         return new BrandsPage(webDriver);
     }
 
-    public StartPage clickOnObuvButton(){
-        clickOnElement(obuvButton);
-        return new StartPage(webDriver);
+    public DetyamPage clickOnDetyamButton(){
+        clickOnElement(DetyamButton, "'Detyam' ");
+        return new DetyamPage (webDriver);
     }
 
     public FavoritesPage clickOnFavoritesButton(){
-        clickOnElement(favoritesButton);
+        clickOnElement(favoritesButton, "'Favourite button' ");
         return new FavoritesPage(webDriver);
     }
+
 }

@@ -31,6 +31,7 @@ public class BrendAdidasPage extends ParentPage{
         Assert.assertThat("Invalid page"
                 , webDriver.getCurrentUrl(),
                 Matchers.containsString(baseUrl + getRelativeUrl()));
+        logger.info("===== Adidas brand Page was opened =====");
         return this;
     }
 
@@ -43,8 +44,5 @@ public class BrendAdidasPage extends ParentPage{
         checkIsElementVisible(adidasAbout);
         return this;
     }
-    
-    
-    
 
 }
