@@ -35,12 +35,12 @@ public class BrendAdidasPage extends ParentPage{
         return this;
     }
 
-    public BrendAdidasPage checkIsAdidasLogoDisplayed(){
+    public BrendAdidasPage checkIsAdidasLogoVisible(){
         checkIsElementVisible(adidasLogo);
         return this;
     }
 
-    public BrendAdidasPage checkIsAdidasAboutDisplayed(){
+    public BrendAdidasPage checkIsAdidasAboutVisible(){
         checkIsElementVisible(adidasAbout);
         return this;
     }

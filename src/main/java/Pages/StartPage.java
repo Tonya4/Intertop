@@ -5,12 +5,11 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.Button;
 
 public class StartPage extends ParentPage {
 
-    @FindBy(xpath = ".//*[@class='menu-item']//a[@href='/ua/brands/'] ")
-    private Button brandsButton;
+    @FindBy(xpath = ".//a[@href='/ua/brands/'] ")
+    private WebElement brandsButton;
 
     @FindBy(xpath = ".//a[@href='/ua/detyam/'] ")
     private WebElement DetyamButton;

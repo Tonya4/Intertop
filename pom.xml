@@ -20,11 +20,26 @@
 
   <dependencies>
     <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-junit4</artifactId>
+      <version>2.13.8</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.13.2</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
     </dependency>
-
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
@@ -45,7 +60,6 @@
       <artifactId>hamcrest-all</artifactId>
       <version>1.3</version>
     </dependency>
-
     <dependency>
       <groupId>ru.yandex.qatools.htmlelements</groupId>
       <artifactId>htmlelements-java</artifactId>
@@ -58,6 +72,11 @@
       <artifactId>owner</artifactId>
       <version>1.0.4</version>
     </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.5</version>
+    </dependency>
 
     <dependency>
       <groupId>pl.pragmatists</groupId>
@@ -65,14 +84,24 @@
       <version>1.0.5</version>
       <scope>test</scope>
     </dependency>
-
     <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
       <version>3.7.1</version>
     </dependency>
-
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.14</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.18</version>
+    </dependency>
   </dependencies>
 
   <build>

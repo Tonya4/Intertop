@@ -12,8 +12,8 @@ public class TC1_AdidasPageTest extends BaseTest {
                  .checkIsRedirectToBrandsPage()
                  .clickOnAdidasButton()
                  .checkIsRedirectToAdidasPage()
-                 .checkIsAdidasLogoDisplayed()
-                 .checkIsAdidasAboutDisplayed()
+                 .checkIsAdidasLogoVisible()
+                 .checkIsAdidasAboutVisible()
                 ;
     }
 
