@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.Button;
 
 public class FavoritesPage extends ParentPage{
 
@@ -14,9 +13,9 @@ public class FavoritesPage extends ParentPage{
     private WebElement favoriteProduct;
 
     @FindBy(xpath = ".//*[@class ='one-item-fav']")
-    private Button deleteFavoriteButton;
+    private WebElement deleteFavoriteButton;
 
-    @FindBy(xpath = ".//*[@class='menu-item']//a[@href='/ua/catalog/zhenskaya_obuv/'] ")
+    @FindBy(xpath = ".//a[@href='/ua/catalog/zhenskaya_obuv/'] ")
     private WebElement obuvButton;
 
     @FindBy(xpath =".//*/b[text()='У вас поки немає товарів у списку “Обране”']")

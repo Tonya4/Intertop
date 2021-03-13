@@ -12,7 +12,7 @@ public class TC2_SubscribeWithInvalidEmail extends BaseTest {
                 .clickOnDetyamButton()
                 .enterInvalidEmailIntoSubscribe(TestData.INVALID_EMAIL)
                 .clickOnSubscribeButton()
-                .checkIsErrorEmailMessageDisplayed()
+                .checkIsErrorEmailMessageVisible()
                 .clickOnCloseErrorEmailMessageButton()
         ;
     }

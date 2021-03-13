@@ -103,14 +103,13 @@ public abstract class ParentPage {         //abstract = nobody can create object
     }
 
 // NEW !!! CHECK IS TEXT IN THE ELEMENT
-    protected boolean isTextInElement(WebElement webElement, String text){
+    protected void isTextInElement(WebElement webElement, String text){
         try {
             boolean state = webElement.toString().contains(text);
             logger.info(getElementName(webElement) + " Contains " + text + " : " + state);
-            return state; //TODO
+            Assert.assertTrue(state);
         } catch (Exception e){
             logger.info(getElementName(webElement) + "Text in Element : false");
-            return false;
         }
 
     }

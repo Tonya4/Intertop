@@ -23,6 +23,9 @@ public class DetyamPage extends ParentPage {
     @FindBy(xpath = ".//*[@class= 'sub-close']")
     private WebElement CloseErrorEmailMessageButton;
 
+    @FindBy(xpath = ".//a[@href= '/catalog/gender-devochki_malchiki-novelty/']")
+    private WebElement newButton;
+
     public DetyamPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -53,7 +56,7 @@ public class DetyamPage extends ParentPage {
         return this;
     }
 
-    public DetyamPage checkIsErrorEmailMessageDisplayed(){
+    public DetyamPage checkIsErrorEmailMessageVisible(){
         checkIsElementVisible(ErrorEmailMessage);
         return this;
     }
@@ -67,6 +70,12 @@ public class DetyamPage extends ParentPage {
         clickOnElement(CloseErrorEmailMessageButton, "'Close error message' ");
         return this;
     }
+
+    public DetyamNewPage clickOnNewButton(){
+        clickOnElement(newButton, "'New button' ");
+        return new DetyamNewPage(webDriver);
+    }
+
 
 }
 
